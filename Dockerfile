@@ -37,4 +37,4 @@ RUN chmod +x /bin/after_install
 # EXPOSE 80 443
 VOLUME ["/var/www/dokuwiki/data/", "/var/www/dokuwiki/lib/plugins","/var/www/dokuwiki/conf/","/var/www/dokuwiki/lib/tpl/","/var/log"]
 
-CMD supervisord -n
+CMD ["/usr/bin/supervisord", "-n"]
