@@ -18,8 +18,9 @@ RUN apt-get clean && apt-get -y autoremove
 
 # Init
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN echo "expose_php = On" >> /etc/hhvm/php.ini
+RUN echo "expose_php = Off" >> /etc/hhvm/php.ini
 RUN /usr/share/hhvm/install_fastcgi.sh
+RUN /etc/init.d/hhvm restart
 ADD supervisor-config/ /etc/supervisor/conf.d
 
 # Installing Dockuwiki
