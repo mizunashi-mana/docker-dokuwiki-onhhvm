@@ -30,6 +30,10 @@ RUN chown -R www-data:www-data /var/www
 RUN rm /etc/nginx/sites-enabled/*
 ADD nginx-config/dokuwiki-site /etc/nginx/sites-enabled/
 
+# Please, execute `docker exec wiki_container after_install` after dokuwiki installed
+COPY after_install.sh /bin/after_install
+RUN chmod +x /bin/after_install
+
 # EXPOSE 80 443
 VOLUME ["/var/www/dokuwiki/data/", "/var/www/dokuwiki/lib/plugins","/var/www/dokuwiki/conf/","/var/www/dokuwiki/lib/tpl/","/var/log"]
 
