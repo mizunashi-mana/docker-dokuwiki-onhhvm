@@ -31,6 +31,6 @@ RUN rm /etc/nginx/sites-enabled/*
 ADD nginx-config/dokuwiki-site /etc/nginx/sites-enabled/
 
 # EXPOSE 80 443
-# VOLUME ["/var/www/dokuwiki/data/", "/var/www/dokuwiki/lib/plugins","/var/www/dokuwiki/conf/","/var/www/dokuwiki/lib/tpl/","/var/log"]
+VOLUME ["/var/www/dokuwiki/data/", "/var/www/dokuwiki/lib/plugins","/var/www/dokuwiki/conf/","/var/www/dokuwiki/lib/tpl/","/var/log"]
 
 CMD supervisord -n
