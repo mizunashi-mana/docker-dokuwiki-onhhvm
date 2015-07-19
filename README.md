@@ -6,15 +6,21 @@ PHPエンジンとしてHHVM、Webサーバーとしてnginxを使ったDokuwiki
 # Install
 
 ```
-$ git clone https://github.com/mizunashi-mana/docker-dokuwiki.git
+$ git clone /path/to/docker-dokuwiki.git
 $ cd docker-dokuwiki
-$ docker build -t mizunashi/dokuwiki .
+$ make build
 ```
 
 # How to use
 
 ```
-$ docker run -d -p 80 --name my_wiki mizunashi/dokuwiki
+$ make quickstart
+$ make logs
 ```
 
-Going to http://127.0.0.1/install.php
+Going to http://127.0.0.1/install.php, and do initial settings.
+After:
+
+```
+$ docker exec mydokuwiki-app after_install
+```

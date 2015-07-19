@@ -29,9 +29,9 @@ server{
     location ~ /\.		{ access_log off; log_not_found off; deny all; }
     location ~ ~$		{ access_log off; log_not_found off; deny all; }
 
-    location = /data/security.png { access_log off; log_not_found off; deny all; }
+    location = /data/security.png { access_log off; error_log off; log_not_found off; deny all; }
 
-    location ~ /(COPYING|README|VERSION) { try_files dummy @dokuwiki; }
+    location ~ /(COPYING|README|VERSION)$ { try_files dummy @dokuwiki; }
 
     location @dokuwiki {
         rewrite ^/_media/(.*)		/lib/exe/fetch.php?media=$1 last;
